@@ -21,8 +21,8 @@ const pickerFilters = (ext?: string[]) => {
 }
 
 type Deps = {
-  killSidecar: () => void
-  relaunch: () => void
+  killSidecar: () => Promise<void> | void
+  relaunch: () => Promise<void> | void
   awaitInitialization: (sendStep: (step: InitStep) => void) => Promise<ServerReadyData>
   getWslServersState: () => Promise<WslServersState> | WslServersState
   onWslServersEvent: (listener: (event: WslServersEvent) => void) => () => void
